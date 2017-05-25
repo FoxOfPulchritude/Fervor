@@ -1,4 +1,4 @@
-package server;
+package tasks;
 
 public class TestTask implements Task{
 

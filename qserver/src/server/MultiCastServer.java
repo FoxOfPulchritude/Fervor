@@ -6,13 +6,14 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.Scanner;
 
 public class MultiCastServer {
-
+	
+	//WARNING!!! ALL THREADS DEPEND ON THIS FIELD
 	static ConcurrentLinkedQueue<TaskMap> que = new ConcurrentLinkedQueue<>();
 
 	public static void main(String[] args) {
-		MultiCastServerThread reciever = null;
+		ServerRecieverThread reciever = null;
 		try {
-			reciever = new MultiCastServerThread();
+			reciever = new ServerRecieverThread();
 			reciever.start();
 			
 		} catch (IOException e) {

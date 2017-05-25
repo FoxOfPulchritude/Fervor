@@ -5,13 +5,14 @@ import java.net.*;
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-public class MultiCastServerThread extends Thread {
-	static int count = 0;
+import tasks.TestTask;
+
+public class ServerRecieverThread extends Thread {
 	private static final int PORT = 4607;
 	protected DatagramSocket socket = null;
 	private static final DatagramPacket WAKE_PACKET = WakePacket.packet();
 	
-	public MultiCastServerThread() throws IOException{
+	public ServerRecieverThread() throws IOException{
 		super("Recieving Que Thread");
 		socket = new DatagramSocket(PORT);
 	}
