@@ -1,5 +1,11 @@
 package server;
 
+/**
+ * 
+ * @author Mark Potocki
+ *
+ */
+@Deprecated
 public class Stock {
 	//private final String name;
 	private final String symbol;

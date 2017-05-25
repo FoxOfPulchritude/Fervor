@@ -10,12 +10,10 @@ public class MultiCastServerThread extends Thread {
 	private static final int PORT = 4607;
 	protected DatagramSocket socket = null;
 	private static final DatagramPacket WAKE_PACKET = WakePacket.packet();
-	private static ConcurrentLinkedQueue<TaskMap> q;
 	
-	public MultiCastServerThread(ConcurrentLinkedQueue<TaskMap> masterQue) throws IOException{
+	public MultiCastServerThread() throws IOException{
 		super("Recieving Que Thread");
 		socket = new DatagramSocket(PORT);
-		this.q = masterQue;
 	}
 	//Change default MESSAGE, LISTEN PORT, LISTEN PACKET
 	@Override
@@ -26,7 +24,7 @@ public class MultiCastServerThread extends Thread {
 				socket.receive(packet);
 				InetAddress address = packet.getAddress();
 				int port = packet.getPort();
-				q.add(new TaskMap(address,new TestTask(),port));
+				MultiCastServer.que.add(new TaskMap(address,new TestTask(),port));
 			}catch(IOException e) {
 				e.printStackTrace();
 		}	

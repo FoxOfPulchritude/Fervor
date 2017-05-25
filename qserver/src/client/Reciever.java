@@ -13,7 +13,7 @@ public class Reciever {
 		//try{
 			LOCALHOST = InetAddress.getLocalHost();
 			server = InetAddress.getByName("10.0.0.41");
-			sendReply(256, 4607);
+			sendTask(256, 4607);
 			
 		//}
 		
@@ -24,10 +24,6 @@ public class Reciever {
 		byte[] wake = new byte[pID];
 		DatagramPacket packet = new DatagramPacket(wake,wake.length,LOCALHOST,port);
 		socket.send(packet);
-		packet = new DatagramPacket(wake, wake.length);
-		socket.receive(packet);
-		String data = new String(packet.getData(), 0, packet.getLength());
-		System.out.println(data);
 		socket.close();
 	}
 }

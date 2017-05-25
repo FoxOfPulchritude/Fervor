@@ -1,10 +1,11 @@
 package server;
 /**
  * Used to fetch from an online source of data to be stored in the server side
- * @author markp
- *
+ * @author Mark Potocki
+ * @deprecated
  * 
  */
+@Deprecated
 public interface Fetcher {
 	/**
 	 * fetches the online data

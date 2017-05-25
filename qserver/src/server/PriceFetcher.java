@@ -1,5 +1,6 @@
 package server;
 
+@Deprecated
 public class PriceFetcher implements Fetcher{
 	private String onlineServer;
 	
